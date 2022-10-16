@@ -1,4 +1,11 @@
+@font-face {
+  font-family: phoneFont;
+  src: url('./fonts/phone-components-font/WorkSans-Regular.ttf');
+}
+
+
 body {
+  font-family: phoneFont!important;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
