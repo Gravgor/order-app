@@ -21,7 +21,7 @@ const Header = ({userName}) => {
     if(dayTime === ''){   
         const filter = dayTimeArray.filter(element => element.time <= time)
         if(filter){
-            const result = filter.slice(-1).pop()
+            const result = filter.pop()
             setDayTime(result.dayTime)
         }
     }

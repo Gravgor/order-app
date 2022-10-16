@@ -7,7 +7,7 @@ const Search = () => {
 
 
     const [value,setValue] = useState({
-        search: ''
+        search: 'Search...'
     })
 
     const handleChange = (prop) => (event) => {
