@@ -15,15 +15,19 @@ const Header = ({userName}) => {
         {dayTime: 'morning', time: '06:00'},
         {dayTime: 'afternoon', time: '13:00'},
         {dayTime: 'evening', time: '19:00'},
-        {dayTime: 'night', time: '22:00'}
+        {dayTime: 'night', time: '00:00'}
     ]
 
-    if(dayTime === ''){   
-        const filter = dayTimeArray.filter(element => element.time <= time)
-        if(filter){
-            const result = filter.pop()
-            setDayTime(result.dayTime)
-        }
+
+
+    if(dayTime === ''){
+        dayTimeArray.forEach(element => {
+            if(element.time <= time){
+                setDayTime(element.dayTime)
+            }else{
+                return;
+            }
+        })
     }
   return (
     <>
