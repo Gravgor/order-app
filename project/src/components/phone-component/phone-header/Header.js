@@ -12,20 +12,18 @@ const Header = ({userName}) => {
     
 
     const dayTimeArray = [
-        {dayTime: 'morning', time: '12:00'},
+        {dayTime: 'morning', time: '06:00'},
         {dayTime: 'afternoon', time: '13:00'},
         {dayTime: 'evening', time: '19:00'},
         {dayTime: 'night', time: '22:00'}
     ]
 
-    if(dayTime === ''){
-        dayTimeArray.forEach(dayTime => {
-            if(dayTime.time <= time){
-                setDayTime(dayTime.dayTime)
-            }else{
-                setError('I cant find any dayTime that matches actual time!')
-            }
-        })
+    if(dayTime === ''){   
+        const filter = dayTimeArray.filter(element => element.time <= time)
+        if(filter){
+            const result = filter.slice(-1).pop()
+            setDayTime(result.dayTime)
+        }
     }
   return (
     <>
