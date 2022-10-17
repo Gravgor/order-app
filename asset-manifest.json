@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Order/static/css/main.6564ef6a.css",
-    "main.js": "/Order/static/js/main.b0be8983.js",
+    "main.css": "/Order/static/css/main.50bfe817.css",
+    "main.js": "/Order/static/js/main.41d078f9.js",
     "static/media/WorkSans-Regular.ttf": "/Order/static/media/WorkSans-Regular.ca211a55c3d9d8690c63.ttf",
     "index.html": "/Order/index.html",
-    "main.6564ef6a.css.map": "/Order/static/css/main.6564ef6a.css.map",
-    "main.b0be8983.js.map": "/Order/static/js/main.b0be8983.js.map"
+    "main.50bfe817.css.map": "/Order/static/css/main.50bfe817.css.map",
+    "main.41d078f9.js.map": "/Order/static/js/main.41d078f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.6564ef6a.css",
-    "static/js/main.b0be8983.js"
+    "static/css/main.50bfe817.css",
+    "static/js/main.41d078f9.js"
   ]
 }
