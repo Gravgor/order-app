@@ -8,6 +8,7 @@ import TabContext from '@mui/lab/TabContext';
 
 import { Grid, Item } from '@mui/material';
 import ItemsComponent from './ItemsComponent';
+import Loader from '../loader-component/Loader';
 
 
 
@@ -17,15 +18,17 @@ const Items = ({itemTable}) => {
 /*tabs changes*/
   const [value, setValue] = useState('1')
 
+  const [freeTab, setFreeTab] = useState({
+    burgerTab: false,
+    pizzaItems: false
+  })
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   }
 
   const burgerItems = itemTable.filter(item => item.category === 'burger')
   const pizzaItems = itemTable.filter(item => item.category === 'pizza')
-
-
-
 
   return (
     <>
@@ -49,6 +52,11 @@ const Items = ({itemTable}) => {
             {itemTable.map(item => (
                     <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>
                    ))}
+                   {itemTable.length === 0  &&
+               <>
+               <Loader/>
+               </>
+               }
             </div>
         </TabPanel>
         <TabPanel value='2'>
@@ -56,6 +64,11 @@ const Items = ({itemTable}) => {
                {burgerItems.map(item => (
                  <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>    
                ))}
+               {burgerItems.length === 0  &&
+               <>
+               <Loader/>
+               </>
+               }
             </div>
         </TabPanel>
         <TabPanel value='3'>
@@ -63,6 +76,11 @@ const Items = ({itemTable}) => {
         {pizzaItems.map(item => (
                 <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/> 
             ))}
+             {pizzaItems.length === 0  &&
+               <>
+               <Loader/>
+               </>
+               }
         </div>
         </TabPanel>
     </TabContext>

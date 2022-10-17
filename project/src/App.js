@@ -1,12 +1,10 @@
 import React from 'react'
-import PhoneBackground from './components/order-component'
+import OrderApp from './components/order-component'
 
 const App = () => {
   return (
     <>
-    <PhoneBackground>
-        
-    </PhoneBackground>
+    <OrderApp/>
     </>
   )
 }

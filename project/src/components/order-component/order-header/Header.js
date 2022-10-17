@@ -15,8 +15,9 @@ const Header = ({userName}) => {
         {dayTime: 'morning', time: '06:00'},
         {dayTime: 'afternoon', time: '13:00'},
         {dayTime: 'evening', time: '19:00'},
-        {dayTime: 'night', time: '00:00'}
+        {dayTime: 'night', time: '23:00'}
     ]
+
 
 
 

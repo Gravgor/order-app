@@ -15,7 +15,7 @@ import Search from './order-search/Search'
 
 
 
-const PhoneBackground = () => {
+const OrderApp = () => {
   return (
     <>
      <div className='phone-component'>
@@ -30,4 +30,4 @@ const PhoneBackground = () => {
   )
 }
 
-export default PhoneBackground
+export default OrderApp
