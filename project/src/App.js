@@ -1,5 +1,5 @@
 import React from 'react'
-import PhoneBackground from './components/phone-component'
+import PhoneBackground from './components/order-component'
 
 const App = () => {
   return (
