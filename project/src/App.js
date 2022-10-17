@@ -1,13 +1,11 @@
 import React from 'react'
-import OrderApp from './components/order-component'
-
-
-
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom"
+import OrderApp from './components'
+
 const App = () => {
   return (
     <>
