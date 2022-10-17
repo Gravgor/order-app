@@ -1,11 +1,11 @@
 import React from 'react'
 import './index.css'
 import { ItemsContent } from './items/item'
-import Footer from './phone-footer-sidebar/Footer-sidebar'
-import Header from './phone-header/Header'
-import Items from './phone-items/Item'
-import Nav from './phone-nav-bar/Nav-sidebar'
-import Search from './phone-search/Search'
+import Footer from './order-footer-sidebar/Footer-sidebar'
+import Header from './order-header/Header'
+import Items from './order-items/Item'
+import Nav from './order-nav-bar/Nav-sidebar'
+import Search from './order-search/Search'
 
 
 
