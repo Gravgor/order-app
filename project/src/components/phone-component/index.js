@@ -1,10 +1,20 @@
 import React from 'react'
 import './index.css'
+import { ItemsContent } from './items/item'
 import Footer from './phone-footer-sidebar/Footer-sidebar'
 import Header from './phone-header/Header'
 import Items from './phone-items/Item'
 import Nav from './phone-nav-bar/Nav-sidebar'
 import Search from './phone-search/Search'
+
+
+
+
+
+
+
+
+
 const PhoneBackground = () => {
   return (
     <>
@@ -12,7 +22,7 @@ const PhoneBackground = () => {
         <Nav/>
         <Header userName={'Marceli'}/>
         <Search/>
-        <Items/>
+        <Items itemTable={ItemsContent}/>
         <Footer/>
 
      </div>

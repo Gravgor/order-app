@@ -18,3 +18,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.content-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 255px;
+    width: 340px;
+    overflow-y: scroll;
+    gap: 25px;
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+
+
+::-webkit-scrollbar{
+  display: none;
+}

@@ -6,11 +6,12 @@ import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 
 
-const Items = () => {
+import { Grid, Item } from '@mui/material';
+import ItemsComponent from './ItemsComponent';
 
 
 
-
+const Items = ({itemTable}) => {
 
 
 /*tabs changes*/
@@ -19,6 +20,10 @@ const Items = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   }
+
+  const burgerItems = itemTable.filter(item => item.category === 'burger')
+  const pizzaItems = itemTable.filter(item => item.category === 'pizza')
+
 
 
 
@@ -39,9 +44,27 @@ const Items = () => {
             <Tab label='Burgers' value='2'/>
             <Tab label='Pizza' value='3'/>
         </Tabs>
-        <TabPanel value='1'>Item one</TabPanel>
-        <TabPanel value='2'>Item one</TabPanel>
-        <TabPanel value='3'>Item one</TabPanel>
+        <TabPanel value='1'>
+            <div className='content-grid'>
+            {itemTable.map(item => (
+                    <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>
+                   ))}
+            </div>
+        </TabPanel>
+        <TabPanel value='2'>
+            <div className='content-grid'>
+               {burgerItems.map(item => (
+                 <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>    
+               ))}
+            </div>
+        </TabPanel>
+        <TabPanel value='3'>
+        <div className='content-grid'>
+        {pizzaItems.map(item => (
+                <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/> 
+            ))}
+        </div>
+        </TabPanel>
     </TabContext>
         
     </Box>
