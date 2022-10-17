@@ -5,7 +5,6 @@ const Header = ({userName}) => {
 
 
     const [dayTime, setDayTime] = useState('')
-    const [error, setError] = useState('')
 
     const newDay = new Date().toISOString()
     const time = new Date(newDay).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Typography} from '@mui/material'
+import {Box} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
