@@ -12,12 +12,13 @@ const LoginUI = () => {
     const [userLocation, setUserLocation] = useState({})
     const [userEndWelcome, setUserEndWelcome] = useState(false)
 
-
   return (
     <>
     <div className='login-header'>
         <div className='login-header-arrow'>
-            <ArrowForwardIcon id='icon' style={{position: 'relative', top: '5px'}} onClick={() => setUserStep((prev) => prev+1)}/>
+            {userStep < 4 &&
+            <ArrowForwardIcon id='icon' style={{position: 'relative', top: '5px'}} onClick={() => setUserStep((prev) => prev+1)}/>}
+            {userStep === 4 && <ArrowForwardIcon id='icon2' style={{position: 'relative', top: '5px', cursor: 'not-allowed', color: 'gray'}}/>}
         </div>
         <p>Skip</p>
     </div>

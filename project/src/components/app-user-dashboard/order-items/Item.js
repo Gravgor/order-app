@@ -9,7 +9,7 @@ import TabContext from '@mui/lab/TabContext';
 import {OutlinedInput, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ItemsComponent from './ItemsComponent';
-import Loader, { LoaderSearch } from '../loader-component/Loader';
+import Loader, { LoaderSearch } from '../order-search/Loader';
 
 
 

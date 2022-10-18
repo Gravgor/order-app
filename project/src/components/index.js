@@ -17,7 +17,7 @@ import LoginUI from './app-user-login/user-login-ui/loginUI'
 
 
 
-const OrderApp = () => {
+const OrderApp = ({user, location}) => {
 
   const [userLogged, setUserLogged] = useState(false)
 
