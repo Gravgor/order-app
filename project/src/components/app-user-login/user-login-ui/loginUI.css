@@ -20,3 +20,19 @@
     position: relative;
     top: 10px;
 }
+
+#icon:hover{
+    cursor: pointer;
+    color: #ced3dc;
+    transition: 0.2s ease-in;
+}
+
+.login-image{
+    margin-left: 33px;
+    margin-top: -140px;
+}
+
+
+#cooking{
+    width: 300px;
+}
