@@ -36,3 +36,9 @@
 #cooking{
     width: 300px;
 }
+
+#locate:hover{
+    cursor: pointer;
+    color: gray;
+    transition: 0.2s ease-in;
+}

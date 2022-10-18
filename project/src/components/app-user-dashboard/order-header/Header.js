@@ -31,9 +31,12 @@ const Header = ({userName}) => {
     }
   return (
     <>
-    <Box sx={{display: 'flex', width: '220px', position: 'relative', top: '50px', left: '15px'}}>
+    <Box sx={{display: 'flex', width: '220px', position: 'relative', top: '50px', left: '15px',flexDirection: 'column'}}>
         <Typography sx={{fontSize: '28px',fontWeight: 'bold'}}>
             Good {dayTime} {userName}! 😎
+        </Typography>
+        <Typography sx={{fontSize: '14px', color: 'gray', position: 'relative', top: '15px'}}>
+            Choose your favorite restaurant from our app!
         </Typography>
     </Box>
     </>

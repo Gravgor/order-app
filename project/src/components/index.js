@@ -7,14 +7,16 @@ import Items from './app-user-dashboard/order-items/Item'
 import Nav from './app-user-dashboard/order-nav-bar/Nav-sidebar'
 import LoginUI from './app-user-login/user-login-ui/loginUI'
 
-/* user UI Login */
 
 
 
 const OrderApp = () => {
 
+
+
   const [userLogged, setUserLogged] = useState(false)
   const [user, setUser] = useState('')
+  const [location, setLocation] = useState('')
 
   if(user.length > 0 && user.length < 16){
     if(userLogged === false){
@@ -31,13 +33,13 @@ const OrderApp = () => {
      <div className='app-component'>
       {userLogged === true &&
       <>
-        <Nav/>
+        <Nav location={location}/>
         <Header userName={user}/>
         <Items itemTable={ItemsContent}/>
         <Footer/>
       </>
       }{userLogged === false &&
-      <LoginUI username={setUser}/>}
+      <LoginUI username={setUser} location={setLocation}/>}
      </div>
     </>
   )

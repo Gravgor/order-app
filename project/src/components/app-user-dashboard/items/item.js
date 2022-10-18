@@ -2,7 +2,6 @@
 
 
 export const ItemsContent = [
-    {name: 'French dog', deliver:'20 minutes', premium: true , img: 'https://cdn.discordapp.com/attachments/806636330133225503/1031357335530127470/tasty-hot-dog-gray-table-close-up-tasty-hot-dog-gray-table-close-up-177724570.jpg', category: 'hotdog'},
-    {name: 'The best pizza', deliver: '45 minutes', premium: false, img:'https://st4.depositphotos.com/14670260/30293/i/600/depositphotos_302938838-stock-photo-vegetarian-italian-pizza-with-tomatoes.jpg', category: 'pizza'},
-    {name: 'The best pizza', deliver: '45 minutes', premium: false, img:'https://st4.depositphotos.com/14670260/30293/i/600/depositphotos_302938838-stock-photo-vegetarian-italian-pizza-with-tomatoes.jpg', category: 'pizza'}
+    {id: 1, name: 'Fresh Pizza Winogrady', location:'Aleje Solidarności 38a, 61-696 Poznań', premium: false , img: 'https://freshpizza.pl/wp-content/themes/cdm/img/logofresh.png', category: 'italian'},
+    {id: 2,name: 'Pizza Hut', location:'Aleje Solidarności 38a, 61-696 Poznań', premium: false , img: 'https://cdn.discordapp.com/attachments/806636330133225503/1031357335530127470/tasty-hot-dog-gray-table-close-up-tasty-hot-dog-gray-table-close-up-177724570.jpg', category: 'italian'},
 ]

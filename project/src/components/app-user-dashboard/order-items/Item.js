@@ -37,13 +37,13 @@ const handleChangeSearch = (prop) => (event) => {
     setValue(newValue);
   }
 
-  const burgerItems = itemTable.filter(item => item.category === 'burger')
-  const pizzaItems = itemTable.filter(item => item.category === 'pizza')
+  const italianItems = itemTable.filter(item => item.category === 'italian')
+  const turkishItems = itemTable.filter(item => item.category === 'turkish')
 
 
-  const filteredItemsAll = itemTable.map(item =>  <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>)
-  const filteredBurgers = burgerItems.map(item => <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>)
-  const filteredPizza = pizzaItems.map(item => <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>)
+  const filteredItemsAll = itemTable.map(item =>  <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img}/>)
+  const filteredItalian = italianItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img}/>)
+  const filteredTurkish = turkishItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img}/>)
 
 
 
@@ -106,8 +106,8 @@ const handleChangeSearch = (prop) => (event) => {
             
         }}>
             <Tab label='All' value='1'/>
-            <Tab label='Burgers' value='2'/>
-            <Tab label='Pizza' value='3'/>
+            <Tab label='Italian' value='2'/>
+            <Tab label='Turkish' value='3'/>
         </Tabs>
         <TabPanel value='1'>
             <div className='content-grid'>
@@ -126,29 +126,29 @@ const handleChangeSearch = (prop) => (event) => {
         <TabPanel value='2'>
             <div className='content-grid'>
                {search.burgerItems === false &&
-               filteredBurgers
+               filteredItalian
                }
-               {burgerItems.length === 0  &&
+               {italianItems.length === 0  &&
                <>
                <Loader/>
                </>
                }
                {search.burgerItems === true &&
-               <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredBurgers}/>}
+               <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredItalian}/>}
             </div>
         </TabPanel>
         <TabPanel value='3'>
         <div className='content-grid'>
              {search.pizzaItems === false &&
-             filteredPizza
+             filteredTurkish
              }
-             {pizzaItems.length === 0  &&
+             {turkishItems.length === 0  &&
                <>
                <Loader/>
                </>
                }
                {search.pizzaItems === true &&
-               <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredPizza}/>}
+               <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredTurkish}/>}
         </div>
         </TabPanel>
     </TabContext>
