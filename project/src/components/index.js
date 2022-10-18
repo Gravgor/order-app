@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{ useState} from 'react'
 import './index.css'
 import { ItemsContent } from './app-user-dashboard/items/item'
 import Footer from './app-user-dashboard/order-footer-sidebar/Footer-sidebar'
@@ -11,15 +11,20 @@ import LoginUI from './app-user-login/user-login-ui/loginUI'
 
 
 
-
-
-
-
-
-
-const OrderApp = ({user, location}) => {
+const OrderApp = () => {
 
   const [userLogged, setUserLogged] = useState(false)
+  const [user, setUser] = useState('')
+
+  if(user.length > 0 && user.length < 16){
+    if(userLogged === false){
+      setUserLogged(true)
+    }else{
+      console.log('Error')
+    }
+  }
+
+
 
   return (
     <>
@@ -27,15 +32,16 @@ const OrderApp = ({user, location}) => {
       {userLogged === true &&
       <>
         <Nav/>
-        <Header userName={'Marceli'}/>
+        <Header userName={user}/>
         <Items itemTable={ItemsContent}/>
         <Footer/>
       </>
       }{userLogged === false &&
-      <LoginUI/>}
+      <LoginUI username={setUser}/>}
      </div>
     </>
   )
 }
+
 
 export default OrderApp
