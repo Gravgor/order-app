@@ -25,7 +25,7 @@ const Header = ({userName}) => {
             if(element.time <= time){
                 setDayTime(element.dayTime)
             }else{
-                return;
+                setDayTime('night')
             }
         })
     }

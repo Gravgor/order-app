@@ -9,8 +9,6 @@ import OrderApp from './components'
 const App = () => {
 
 
-
-
   return (
     <>
     <Router>
