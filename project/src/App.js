@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path='/Order/' element={<OrderApp/>}/>
+        <Route path='/' element={<OrderApp/>}/>
       </Routes>
     
     </>
