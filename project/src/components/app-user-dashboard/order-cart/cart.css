@@ -3,3 +3,45 @@ color: #f5f5f5;
 transition: 0.2s ease-in;
 cursor: pointer;
 }
+
+.cart-items{
+    margin-top: -10px;
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    height: 130px;
+    overflow-y: scroll;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.item{
+    margin-top: -30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.item-name{
+    color: #000;
+    font-weight: bold;
+}
+.item-price{
+    color: gray;
+}
+
+.cart-button{
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    background-color: #000;
+    border: none;
+    height: 40px;
+    width: 180px;
+    margin-left: 25px;
+    border-radius: 15px;
+}
+
+.cart-button:hover{
+    opacity: 0.7;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}

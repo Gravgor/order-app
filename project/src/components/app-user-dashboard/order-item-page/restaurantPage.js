@@ -1,4 +1,4 @@
-import React,{useEffect, useState, useCallback} from 'react'
+import React,{useState, useMemo} from 'react'
 
 
 import { Box, Tab, Tabs } from '@mui/material'
@@ -25,6 +25,7 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
 
 
   const shopID = data[0].id
+  const shopName = data[0].name
   const shopCategory = data[0].categoryDisplay
   const newArray = [Products]
   const [value, setValue] = useState(0)
@@ -42,26 +43,22 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
 
   /* user choosed item inside restaurant page */
 
-  const [userItem, setItem] = useState([])
+  const [userItem, setItem] = useState([{}])
 
 
  
 
 
+ useMemo(() => {
+     const filtred = shopProducts.filter((item) => item.categoryID === value)
+     setUserChoose(() => filtred)
+ },[value, shopProducts])
 
 
 
 
 
- useEffect(() => {
-    if(value && shopProducts){
-      const filtered = shopProducts.filter(item => item.categoryID === value)
-      setUserChoose(() => filtered)
-    }else if(value === 0 && shopProducts){
-      const filtered = shopProducts.filter(item => item.categoryID === value)
-      setUserChoose(() => filtered)
-    }
-  }, [value, shopProducts])
+
 
 
 
@@ -110,7 +107,7 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
       height: '50px',
     }}>
       <ArrowBackIcon id='arrowbackrest' style={{backgroundColor: '#e59500', borderRadius: '50%', width: '30px', height: '30px', position: 'relative', left:'20px', top: '10px'}} onClick={(e) => goBackToMainPage(e)}/>
-      {userItem.length > 0 ? <Cart items={userItem}/> : 'e'}
+      {userItem.length > 0 ? <Cart items={userItem} shop={shopName}/> : 'e'}
 
 
     </Box>
@@ -163,21 +160,21 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
             <TabPanel value={0} index={0}>
             {userChoose.map((item, index) => {
               return(
-                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} clickedData={setItem}/>
+                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} setItem={setItem}/>
               )
               })}
             </TabPanel>
             <TabPanel value={1} index={1}>
             {userChoose.map((item, index) => {
               return(
-                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} clickedData={setItem}/>
+                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} setItem={setItem}/>
               )
               })}
             </TabPanel>
             <TabPanel value={2} index={2}>
             {userChoose.map((item, index) => {
               return(
-                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} clickedData={setItem}/>
+                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} setItem={setItem}/>
               )
               })}
             </TabPanel>

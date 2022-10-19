@@ -2,13 +2,16 @@ import React, { useEffect } from 'react'
 
 import './dish.css'
 
-const DishComponent = ({name,price,description,id, img, shopID, clickedData}) => {
+const DishComponent = ({name,price,description,id, img, shopID, setItem}) => {
 
 
+  const setup = () => {
+    setItem((prev) => [...prev, {name: name,price: price,id:id, shopID:shopID}])
+  }
 
   return (
     <>
-    <div className='dish-component' onClick={clickedData([{name: name, id: id, price: price}])}>
+    <div className='dish-component' onClick={() => setup()}>
         <div className='right-content'>
             <p>{name}</p>
             <p style={{marginTop: '-15px'}}>{price} eur.</p>
