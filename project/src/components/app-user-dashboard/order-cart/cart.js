@@ -76,7 +76,7 @@ const Cart = ({items, shop}) => {
           <div className='cart-items'>
           {items2.length > 0 ? items2.map(item => {
             return (
-                <div className='item'>
+                <div className='item2'>
                   <p className='item-name'>{item.name}</p>
                   <p className='item-price'>{item.price  + 'eur'}</p>
                 </div>

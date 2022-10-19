@@ -15,10 +15,10 @@ cursor: pointer;
     flex-direction: column;
 }
 
-.item{
+.item2{
     margin-top: -30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row!important;
 }
 
 .item-name{

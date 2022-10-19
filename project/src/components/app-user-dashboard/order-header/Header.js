@@ -18,7 +18,7 @@ const Header = ({userName}) => {
     ]
 
     if(dayTime === ''){
-       dayTimeArray.filter(item => item.time < time ? setDayTime(item.dayTime) : 'afternoon')
+       dayTimeArray.filter(item => item.time <= time ? setDayTime(item.dayTime) : 'afternoon')
     }
   return (
     <>
