@@ -17,17 +17,8 @@ const Header = ({userName}) => {
         {dayTime: 'night', time: '23:00'}
     ]
 
-
-
-
     if(dayTime === ''){
-        dayTimeArray.forEach(element => {
-            if(element.time <= time){
-                setDayTime(element.dayTime)
-            }else{
-                setDayTime('night')
-            }
-        })
+       dayTimeArray.filter(item => item.time < time ? setDayTime(item.dayTime) : 'afternoon')
     }
   return (
     <>

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useCallback} from 'react'
 
 
 import { Box, Tab, Tabs } from '@mui/material'
@@ -10,14 +10,12 @@ import './restaurantPage.css'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Products } from './restaurant-page-data/data';
+import DishComponent from './dishComponent';
+import Cart from '../order-cart/cart';
 
 
 
 
-
-
-/// TODO: Design a item page
-/// TODO: Create products for page add them prices etc.
 
 
 
@@ -41,23 +39,29 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
 
   const [userChoose, setUserChoose] = useState([])
 
+
+  /* user choosed item inside restaurant page */
+
+  const [userItem, setItem] = useState([])
+
+
  
 
 
 
 
 
-  useEffect(() => {
+
+
+ useEffect(() => {
     if(value && shopProducts){
-      const indexToChoose = shopProducts.findIndex((item) => item.categoryID === value)
-      const updatedArray = [...shopProducts]
-      setUserChoose(() => [updatedArray[indexToChoose]])
+      const filtered = shopProducts.filter(item => item.categoryID === value)
+      setUserChoose(() => filtered)
     }else if(value === 0 && shopProducts){
-      const indexToChoose = shopProducts.findIndex((item) => item.categoryID === value)
-      const updatedArray = [...shopProducts]
-      setUserChoose(() => [updatedArray[indexToChoose]])
+      const filtered = shopProducts.filter(item => item.categoryID === value)
+      setUserChoose(() => filtered)
     }
-  },[value, shopProducts])
+  }, [value, shopProducts])
 
 
 
@@ -76,6 +80,8 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
         }
    }
   }
+
+
 
 
 
@@ -104,6 +110,7 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
       height: '50px',
     }}>
       <ArrowBackIcon id='arrowbackrest' style={{backgroundColor: '#e59500', borderRadius: '50%', width: '30px', height: '30px', position: 'relative', left:'20px', top: '10px'}} onClick={(e) => goBackToMainPage(e)}/>
+      {userItem.length > 0 ? <Cart items={userItem}/> : 'e'}
 
 
     </Box>
@@ -156,21 +163,21 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
             <TabPanel value={0} index={0}>
             {userChoose.map((item, index) => {
               return(
-                <p>{item.name}</p>
+                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} clickedData={setItem}/>
               )
               })}
             </TabPanel>
             <TabPanel value={1} index={1}>
             {userChoose.map((item, index) => {
               return(
-                <p>{item.name}</p>
+                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} clickedData={setItem}/>
               )
               })}
             </TabPanel>
             <TabPanel value={2} index={2}>
             {userChoose.map((item, index) => {
               return(
-                <p>{item.name}</p>
+                <DishComponent name={item.name} price={item.price} description={item.description} id={item.id} img={item.img} clickedData={setItem}/>
               )
               })}
             </TabPanel>
