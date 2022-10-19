@@ -1,0 +1,44 @@
+.item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+img{
+    width: 350px;
+    height: 140px;
+}
+
+.item-info{
+    position: relative;
+    top: -10px;
+    width: 350px;
+    height: 45px!important;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+.item-img{
+    text-align: center;
+}
+
+.item-info-name{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-info-delivery{
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 100px;
+}
+
+#procced:hover{
+    cursor: pointer;
+    color: #fff;
+    transition: 0.2s ease-in;
+}

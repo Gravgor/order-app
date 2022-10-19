@@ -103,7 +103,7 @@ visible={visible}
 {visible === false &&
   <div>
     {items.map(item => (
-      <ItemsComponent name={item.name} deliver={item.deliver} premium={item.premium} img={item.img}/>
+      <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime}/>
     ))
       
     }

@@ -2,6 +2,7 @@
 
 
 export const ItemsContent = [
-    {id: 1, name: 'Fresh Pizza Winogrady', location:'Aleje Solidarności 38a, 61-696 Poznań', premium: false , img: 'https://freshpizza.pl/wp-content/themes/cdm/img/logofresh.png', category: 'italian'},
-    {id: 2,name: 'Pizza Hut', location:'Aleje Solidarności 38a, 61-696 Poznań', premium: false , img: 'https://cdn.discordapp.com/attachments/806636330133225503/1031357335530127470/tasty-hot-dog-gray-table-close-up-tasty-hot-dog-gray-table-close-up-177724570.jpg', category: 'italian'},
+    {id: 1, name: 'Fresh Pizza Winogrady', location:'Aleje Solidarności 38a, 61-696 Poznań', categoryDisplay: 'Italian', premium: false , img: 'https://media.istockphoto.com/photos/appetizers-table-with-antipasti-snacks-and-wine-in-glasses-authentic-picture-id1097932504?s=170667a', category: 'italian', deliveryTime: '35-90 MIN'},
+    {id: 2, name: 'Sex Pizza Winogrady', location:'Aleje Solidarności 38a, 61-696 Poznań', categoryDisplay: 'Italian', premium: false , img: 'https://media.istockphoto.com/photos/appetizers-table-with-antipasti-snacks-and-wine-in-glasses-authentic-picture-id1097932504?k=20&m=1097932504&s=612x612&w=0&h=D5xgUxcqbEr2TgbZKPwLjrx5ve8W15_D39AGfQWdlh4=', category: 'italian', deliveryTime: '35-90 MIN'},
+
 ]

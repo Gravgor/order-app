@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -14,7 +14,7 @@ import Loader, { LoaderSearch } from '../order-search/Loader';
 
 
 
-const Items = ({itemTable}) => {
+const Items = ({itemTable, userChoose}) => {
 
 
 /*tabs changes*/
@@ -30,6 +30,15 @@ const [search, setSearch] = useState({
   pizzaItems: false,
 })
 
+const [userItemPageValue, setUserItemPageValue] = useState(false)
+const [userItemPage, setUserItemPage] = useState([])
+
+useEffect(() => {
+  if(userItemPage.length > 0){
+    userChoose(userItemPage)
+  }
+},[userChoose, userItemPage])
+
 const handleChangeSearch = (prop) => (event) => {
   setValueSearch({...valueSearch, [prop]: event.target.value});
 }
@@ -41,9 +50,10 @@ const handleChangeSearch = (prop) => (event) => {
   const turkishItems = itemTable.filter(item => item.category === 'turkish')
 
 
-  const filteredItemsAll = itemTable.map(item =>  <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img}/>)
-  const filteredItalian = italianItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img}/>)
-  const filteredTurkish = turkishItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img}/>)
+  const filteredItemsAll = itemTable.map(item =>  <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
+  const filteredItalian = italianItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
+  const filteredTurkish = turkishItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
+
 
 
 
@@ -111,7 +121,7 @@ const handleChangeSearch = (prop) => (event) => {
         </Tabs>
         <TabPanel value='1'>
             <div className='content-grid'>
-              {search.allItems === false &&
+              {search.allItems === false && 
               filteredItemsAll
               }
               {itemTable.length === 0  &&
@@ -119,8 +129,11 @@ const handleChangeSearch = (prop) => (event) => {
                <Loader/>
                </>
                }
-               {search.allItems === true &&
+               {search.allItems === true && 
                <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredItemsAll}  />}
+               {userItemPageValue === true &&
+               <p>sex</p>}
+               
             </div>
         </TabPanel>
         <TabPanel value='2'>
