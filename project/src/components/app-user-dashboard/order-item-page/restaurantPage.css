@@ -1,0 +1,18 @@
+#arrowbackrest:hover{
+    cursor: pointer;
+    color: #fff;
+    transition: 0.2s ease-in;
+}
+
+.name{
+    font-weight: bold;
+
+}
+
+.restaurant-page-header{
+    margin-left: 15px;
+}
+
+li{
+    font-weight: bold;
+}

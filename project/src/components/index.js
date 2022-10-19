@@ -1,4 +1,4 @@
-import React,{ useState} from 'react'
+import React,{ useEffect, useState} from 'react'
 import './index.css'
 import { ItemsContent } from './app-user-dashboard/items/item'
 import Footer from './app-user-dashboard/order-footer-sidebar/Footer-sidebar'
@@ -13,7 +13,6 @@ import RestaurantPage from './app-user-dashboard/order-item-page/restaurantPage'
 /*
 
 Display the item page when user clicked the actual item - DNE
-TODO: Complete the item page;
 
 
 
@@ -42,6 +41,12 @@ const OrderApp = () => {
     setUserChoosed(true)
   }
 
+  
+
+  useEffect(() => {
+    console.log(userChoosed)
+  },[userChoosed])
+
 
 
   return (
@@ -49,10 +54,10 @@ const OrderApp = () => {
      <div className='app-component'>
       {userLogged === true &&
       <>
-        <Nav location={location}/>
+        {userChoosed === false &&<Nav location={location}/>}
         {userChoosed === false && <Header userName={user}/>}
         {userChoosed === false && <Items itemTable={ItemsContent} userChoose={setUserItemChoose}/>}
-        {userChoosed === true && <RestaurantPage data={userItemChoose}/>}
+        {userChoosed === true && <RestaurantPage data={userItemChoose} emptyArray={setUserItemChoose} userStateChoose={setUserChoosed}/>}
         <Footer/>
       </>
       }{userLogged === false &&
