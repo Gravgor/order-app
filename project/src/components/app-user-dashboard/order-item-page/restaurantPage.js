@@ -12,6 +12,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Products } from './restaurant-page-data/data';
 import DishComponent from './dishComponent';
 import Cart from '../order-cart/cart';
+import { motion } from 'framer-motion'
 
 
 
@@ -100,8 +101,12 @@ const RestaurantPage = ({data,emptyArray, userStateChoose, setUserOrdered,setUse
 
 
   return (
-    <>
-    <Box
+    <motion.div
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 1}}
+    >
+      <Box
     sx={{
       display: 'flex',
       flexDirection: 'row',
@@ -186,7 +191,7 @@ const RestaurantPage = ({data,emptyArray, userStateChoose, setUserOrdered,setUse
         </div>
       </div>
     </Box>
-    </>
+    </motion.div>
   )
 }
 

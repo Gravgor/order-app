@@ -9,6 +9,7 @@ import LoginUI from './app-user-login/user-login-ui/loginUI'
 import RestaurantPage from './app-user-dashboard/order-item-page/restaurantPage'
 import Payment from './app-user-dashboard/order-checkout/payment'
 
+import { AnimatePresence, motion } from 'framer-motion'
 
 
 /*
@@ -56,11 +57,13 @@ const OrderApp = () => {
      <div className='app-component'>
       {userLogged === true && userOrdered === false &&
       <>
+      <AnimatePresence>
         {userChoosed === false &&<Nav location={location}/>}
         {userChoosed === false && <Header userName={user}/>}
         {userChoosed === false && <Items itemTable={ItemsContent} userChoose={setUserItemChoose}/>}
         {userChoosed === true && <RestaurantPage data={userItemChoose} emptyArray={setUserItemChoose} userStateChoose={setUserChoosed} setUserOrdered={setUserOrdered} setUserOrderInfo={setUserOrderInfo}/>}
         <Footer/>
+        </AnimatePresence>
       </>
       }{userLogged === false &&
       <LoginUI username={setUser} location={setLocation}/>}

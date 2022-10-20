@@ -5,6 +5,7 @@ import { Typography, Box, TextField, Stack, Button } from '@mui/material';
 import { ReactComponent as Cooking} from './images/cooking1.svg';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
+import { motion } from 'framer-motion'
 
 
 
@@ -37,7 +38,11 @@ const LoginUI = (props) => {
       }
    }
   return (
-    <>
+    <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 1}}
+                >
     <div className='login-header'>
         <div className='login-header-arrow'>
             {userStep < 4 &&
@@ -49,14 +54,22 @@ const LoginUI = (props) => {
     <div className='login-content'>
         <div className='login-content-header' style={{width: '250px', display: 'flex', flexDirection: 'column', marginTop: '65px', marginLeft: '35px'}}>
             {userStep === 1 &&
-            <>
+            <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 1}}
+            >
              <Typography variant='p' style={{fontWeight: 'bold', fontSize: '30px'}}>Hello! 🤗</Typography>
              <Typography variant='p' style={{fontWeight: 'bold', fontSize: '30px'}}>Let's see what</Typography>
              <Typography variant='p' style={{fontWeight: 'bold', fontSize: '30px'}}>you are looking</Typography>
              <Typography variant='p' style={{fontWeight: 'bold', fontSize: '30px'}}>for!</Typography>
-            </>
+            </motion.div>
             }{userStep === 2 &&
-            <>
+                <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 1}}
+                >
             <Box
             component="form"
             sx={{
@@ -80,9 +93,13 @@ const LoginUI = (props) => {
             </Box>
             
             
-            </>}
+            </motion.div>}
             {userStep === 3 &&
-            <>
+            <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 1}}
+            >
             <Box
             sx={{
                 display: 'flex',
@@ -110,23 +127,27 @@ const LoginUI = (props) => {
                 }}}
                 style={{position: 'relative', top: '15px',}} value={userLocation} onChange={(e) => setUserLocation(e.target.value)}></TextField>
             </Box>
-            </>
+            </motion.div>
             }
             {userStep === 4 &&
-            <>
+            <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 1}}
+            >
             <Typography variant='p' style={{fontWeight: 'bold', fontSize: '30px'}}>{userName} hit button below!</Typography>
             <Stack spacing={1} direction="row">
                 <Button variant="contained" onClick={() => handleLogin()} style={{marginLeft:'55px', marginTop: '20px', backgroundColor: '#e59500', color:'#000'}}>Confirm</Button>
             </Stack>
             
-            </>}
+            </motion.div>}
         </div>
         <div className='login-image'>
             <Cooking id='cooking'/>
         </div>
     </div>
 
-    </>
+    </motion.div>
   )
 }
 

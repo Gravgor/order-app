@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ItemsComponent from './ItemsComponent';
 import Loader, { LoaderSearch } from '../order-search/Loader';
 
+import { motion } from 'framer-motion'
 
 
 
@@ -85,8 +86,12 @@ const handleChangeSearch = (prop) => (event) => {
   }
 
   return (
-    <>
-    <Box sx={{display: 'flex',alignItems: 'center', justifyContent: 'center'}}>
+    <motion.div
+    initial={{width: 0}}
+    animate={{width: "100%"}}
+    exit={{x: "100%"}}
+    >
+      <Box sx={{display: 'flex',alignItems: 'center', justifyContent: 'center'}}>
         <OutlinedInput id='search-input' variant='standard'
         className='search-input'
         endAdornment={
@@ -168,7 +173,7 @@ const handleChangeSearch = (prop) => (event) => {
         
     </Box>
     
-    </>
+    </motion.div>
   )
 }
 

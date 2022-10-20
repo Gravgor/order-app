@@ -1,7 +1,10 @@
 import React,{useState} from 'react'
 import {Box, Typography} from '@mui/material'
+import { motion } from 'framer-motion'
+
 
 const Header = ({userName}) => {
+
 
 
     const [dayTime, setDayTime] = useState('')
@@ -21,8 +24,12 @@ const Header = ({userName}) => {
        dayTimeArray.filter(item => item.time <= time ? setDayTime(item.dayTime) : 'afternoon')
     }
   return (
-    <>
-    <Box sx={{display: 'flex', width: '220px', position: 'relative', top: '50px', left: '15px',flexDirection: 'column'}}>
+    <motion.div
+    initial={{width: 0}}
+    animate={{width: "100%"}}
+    exit={{width: "100%"}}
+    >
+        <Box sx={{display: 'flex', width: '220px', position: 'relative', top: '50px', left: '15px',flexDirection: 'column'}}>
         <Typography sx={{fontSize: '28px',fontWeight: 'bold'}}>
             Good {dayTime} {userName}! 😎
         </Typography>
@@ -30,7 +37,7 @@ const Header = ({userName}) => {
             Choose your favorite restaurant from our app!
         </Typography>
     </Box>
-    </>
+    </motion.div>
   )
 }
 
