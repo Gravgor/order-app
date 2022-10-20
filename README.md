@@ -6,4 +6,4 @@ You can search for restaurant, click into restaurant profile, add food to cart.
 
 In next version will admin panel be added, where user can add their own restaurants etc. Also i will add order history, user profile and more and more.
 
-You can view page on https://marceliborowczak.me/Order
+You can view page on [https://marceliborowczak.me/Order](https://marceliborowczak.me/order-app/)
