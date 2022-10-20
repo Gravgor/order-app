@@ -4,7 +4,6 @@ import React,{useState} from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import './css/Item.css'
-///TODO: Add button to get into item page
 
 const ItemsComponent = ({id, name,location,premium, img, categoryDisplay,deliveryTime, userChoose}) => {
   const [itemsArray, setItemsArray] = useState([
@@ -23,7 +22,7 @@ const ItemsComponent = ({id, name,location,premium, img, categoryDisplay,deliver
   }
   return (
     <>
-    <div className="item" style={{position: 'relative', left: '-15px'}}>
+    <div className="item" style={{position: 'relative', left: '-15px', marginBottom: '-15px'}}>
       <div className='item-img'>
         <img src={img} alt="item-img"/>
       </div>

@@ -52,49 +52,49 @@ export const Products = {
         },
         {
             "id": 2,
-            "name": "Sex Pizza Wingorady",
+            "name": "MacDonalds",
             "location": "Aleje Solidarności 38a, 61-696 Poznań",
-            "categoryDisplay": "Italian",
+            "categoryDisplay": "Fast Food",
             "premium": false,
             "img": "https://media.istockphoto.com/photos/appetizers-table-with-antipasti-snacks-and-wine-in-glasses-authentic-picture-id1097932504?s=170667a",
-            "category": "italian",
+            "category": "fast-food",
             "deliveryTime": "35-90 MIN",
             "categoriesInside": [
                 {
                     "id": 0,
-                    "name": "Pizza",
+                    "name": "Mc sets",
                 },
                 {
                     "id": 1,
-                    "name": "Pizza faszerowana",
+                    "name": "Mc burgers",
                 },
                  {
                     "id": 2,
-                    "name": "Dania",
+                    "name": "Mc drinks",
                  }
             ],
             "products": [
                 {
                     "id": 1,
-                    "name": "Pizza number uno",
+                    "name": "Big Mac",
                     "price": 20,
-                    "description": "Pizza with cheese and tomato",
+                    "description": "Big Mac with cheese and tomato",
                     "categoryID": 0,
                     "img": "https://media.istockphoto.com/photos/concept-promotional-flyer-and-poster-for-restaurants-or-pizzerias-picture-id943449226?s=612x612",
                 },
                 {
                     "id": 2,
-                    "name": "Pizza number dos",
-                    "price": 25,
-                    "description": "Pizza with cheese and tomato",
+                    "name": "Cheeseburger",
+                    "price": 5,
+                    "description": "Cheeseburger with cheese and tomato",
                     "categoryID": 1,
                     "img": "https://media.istockphoto.com/photos/concept-promotional-flyer-and-poster-for-restaurants-or-pizzerias-picture-id943449226?s=612x612",
                 },
                 {
                     "id": 3,
-                    "name": "Pizza number tres",
+                    "name": "Coca Cola",
                     "price": 30,
-                    "description": "Pizza with cheese and tomato",
+                    "description": "Coca Cola",
                     "categoryID": 2,
                     "img": "https://media.istockphoto.com/photos/concept-promotional-flyer-and-poster-for-restaurants-or-pizzerias-picture-id943449226?s=612x612",
                 }

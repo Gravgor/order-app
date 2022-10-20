@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useMemo} from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import './cart.css'
@@ -7,13 +7,18 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import { Box } from '@mui/system';
+import Payment from '../order-checkout/payment';
 
 
-const Cart = ({items, shop}) => {
+const Cart = ({items, shop, order, setPayment}) => {
 
   const [cartItems, setCartItems] = useState(0)
   const [cartOpen, setCartOpen] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
+
+  const [userOrdered, setUserOrdered] = useState(false)
+
+  const eur = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
 
 
   const items2 = []
@@ -32,6 +37,7 @@ const Cart = ({items, shop}) => {
        return item.price
       })
       itemPrice.shift()
+      if(itemPrice.length > 0){
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         const total = itemPrice.reduce(reducer)
         if(total){
@@ -39,22 +45,22 @@ const Cart = ({items, shop}) => {
         }
       }
   }
+}
+
+  const handleCartClose = () => {
+    setCartOpen(false)
+    order(true)
+    setPayment([{shop, items2, totalPrice}])
+  }
+
+  useMemo(() => {
+    if(userOrdered === true){
+      setUserOrdered(false)
+    }
+  },[userOrdered])
 
 
 
-
-  const style = {
-    position: 'absolute',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 280,
-    bgcolor: '#FFF',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    borderRadius: 15,
-  };
   return (
     <>
     <ShoppingCartIcon id='cart' style={{backgroundColor: '#e59500', borderRadius: '50%', width: '30px', height: '30px', position: 'relative',top: '10px', left: '250px'}} onClick={() => handleCartOpen()}></ShoppingCartIcon>
@@ -71,19 +77,32 @@ const Cart = ({items, shop}) => {
     }}
     >
       <Fade in={cartOpen}>
-        <Box sx={style}>
-          <h2 id="modal-modal-title">Your Cart from {shop}</h2>
-          <div className='cart-items'>
-          {items2.length > 0 ? items2.map(item => {
-            return (
-                <div className='item2'>
-                  <p className='item-name'>{item.name}</p>
-                  <p className='item-price'>{item.price  + 'eur'}</p>
-                </div>
-            )
-          }): 'e'}
-          </div>
-          <button className='cart-button' onClick={() => setCartOpen(false)}>Order - {totalPrice} eur</button>
+        <Box sx={{
+          position: 'absolute',
+          top: '30%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 280,
+          bgcolor: '#FFF',
+          border: '2px solid #000',
+          boxShadow: 24,
+          p: 4,
+          borderRadius: 15,
+        }}>
+             <h2 id="modal-modal-title">Your Cart from {shop}</h2>
+             <div className='cart-items'>
+             {items2.length > 0 ? items2.map(item => {
+               return (
+                   <div className='item2'>
+                     <p className='item-name'>{item.name}</p>
+                     <p className='item-price' style={{marginLeft: '15px'}}>{eur.format(item.price)}</p>
+                   </div>
+               )
+             }): <p style={{color: 'gray'}}>No items in cart</p>}
+             
+             </div>
+             <button className='cart-button' style={{marginTop: '15px'}} onClick={() => handleCartClose()}>Order - {eur.format(totalPrice)}</button>
+             {userOrdered ? <Payment paymentPrice={totalPrice} shopName={shop} orderList={items2}/> : ''}
         </Box>
       </Fade>
     </Modal> : null}

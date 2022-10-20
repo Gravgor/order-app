@@ -5,6 +5,8 @@ import './dish.css'
 const DishComponent = ({name,price,description,id, img, shopID, setItem}) => {
 
 
+  const eur = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
+
   const setup = () => {
     setItem((prev) => [...prev, {name: name,price: price,id:id, shopID:shopID}])
   }
@@ -14,7 +16,7 @@ const DishComponent = ({name,price,description,id, img, shopID, setItem}) => {
     <div className='dish-component' onClick={() => setup()}>
         <div className='right-content'>
             <p>{name}</p>
-            <p style={{marginTop: '-15px'}}>{price} eur.</p>
+            <p style={{marginTop: '-15px'}}>{eur.format(price)}.</p>
             <p style={{color: 'gray',marginTop: '-15px'}}>{description}</p>
         </div>
         <div className='left-content'>

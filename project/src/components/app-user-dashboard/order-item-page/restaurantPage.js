@@ -1,4 +1,4 @@
-import React,{useState, useMemo} from 'react'
+import React,{useState, useMemo, useEffect} from 'react'
 
 
 import { Box, Tab, Tabs } from '@mui/material'
@@ -20,7 +20,7 @@ import Cart from '../order-cart/cart';
 
 
 
-const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
+const RestaurantPage = ({data,emptyArray, userStateChoose, setUserOrdered,setUserOrderInfo}) => {
 
 
 
@@ -45,14 +45,16 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
 
   const [userItem, setItem] = useState([{}])
 
+  /* payment oder */
 
- 
+
 
 
  useMemo(() => {
      const filtred = shopProducts.filter((item) => item.categoryID === value)
      setUserChoose(() => filtred)
  },[value, shopProducts])
+
 
 
 
@@ -107,7 +109,7 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
       height: '50px',
     }}>
       <ArrowBackIcon id='arrowbackrest' style={{backgroundColor: '#e59500', borderRadius: '50%', width: '30px', height: '30px', position: 'relative', left:'20px', top: '10px'}} onClick={(e) => goBackToMainPage(e)}/>
-      {userItem.length > 0 ? <Cart items={userItem} shop={shopName}/> : 'e'}
+      {userItem.length > 0 ? <Cart items={userItem} shop={shopName} order={setUserOrdered} setPayment={setUserOrderInfo}/> : 'e'}
 
 
     </Box>
@@ -125,7 +127,7 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
          <p style={{marginTop: '-15px'}}>Open to 8:00 PM</p>
       </div>
       <div className='restaurant-page-left-header'>
-        <p style={{fontSize: '12px',marginTop: '60px'}}>Delivery time: {data[0].deliveryTime}</p>
+        <p style={{fontSize: '12px',marginTop: '60px', marginLeft: '15px'}}>Delivery time: {data[0].deliveryTime}</p>
       </div>
       </div>
       <div className='restaurant-page-body'>
@@ -147,7 +149,8 @@ const RestaurantPage = ({data,emptyArray, userStateChoose}) => {
           sx={{
               "& button:focus": {color: '#e59500'},
               borderRight: 1, 
-              borderColor: 'divider'
+              borderColor: 'divider',
+              marginLeft: '-15px'
               
           }}
             >

@@ -39,8 +39,24 @@ cursor: pointer;
     margin-left: 25px;
     border-radius: 15px;
 }
+.cart-button1{
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    background-color: #000;
+    border: none;
+    height: 40px;
+    width: 200px;
+    margin-left: 25px;
+    border-radius: 15px;
+}
 
 .cart-button:hover{
+    opacity: 0.7;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.cart-button1:hover{
     opacity: 0.7;
     transition: 0.2s ease-in;
     cursor: pointer;

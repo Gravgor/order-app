@@ -7,6 +7,7 @@ import Items from './app-user-dashboard/order-items/Item'
 import Nav from './app-user-dashboard/order-nav-bar/Nav-sidebar'
 import LoginUI from './app-user-login/user-login-ui/loginUI'
 import RestaurantPage from './app-user-dashboard/order-item-page/restaurantPage'
+import Payment from './app-user-dashboard/order-checkout/payment'
 
 
 
@@ -26,42 +27,45 @@ const OrderApp = () => {
   const [userLogged, setUserLogged] = useState(false)
   const [userItemChoose, setUserItemChoose] = useState([])
   const [userChoosed,setUserChoosed] = useState(false)
+  const [userOrdered, setUserOrdered] = useState(false)
+  const [error, setError] = useState(false)
   const [user, setUser] = useState('')
   const [location, setLocation] = useState('')
 
+  /*  order info */
+  const [userOrderInfo, setUserOrderInfo] = useState([{}])
+
+  if(userLogged === false){
   if(user.length > 0 && user.length < 16){
     if(userLogged === false){
       setUserLogged(true)
     }else{
-      console.log('Error')
+      console.log('')
     }
   }
-
+  }
   if(userItemChoose.length > 0 && userChoosed === false){
     setUserChoosed(true)
   }
 
+
   
-
-  useEffect(() => {
-    console.log(userChoosed)
-  },[userChoosed])
-
 
 
   return (
     <>
      <div className='app-component'>
-      {userLogged === true &&
+      {userLogged === true && userOrdered === false &&
       <>
         {userChoosed === false &&<Nav location={location}/>}
         {userChoosed === false && <Header userName={user}/>}
         {userChoosed === false && <Items itemTable={ItemsContent} userChoose={setUserItemChoose}/>}
-        {userChoosed === true && <RestaurantPage data={userItemChoose} emptyArray={setUserItemChoose} userStateChoose={setUserChoosed}/>}
+        {userChoosed === true && <RestaurantPage data={userItemChoose} emptyArray={setUserItemChoose} userStateChoose={setUserChoosed} setUserOrdered={setUserOrdered} setUserOrderInfo={setUserOrderInfo}/>}
         <Footer/>
       </>
       }{userLogged === false &&
       <LoginUI username={setUser} location={setLocation}/>}
+      {userOrdered === true && userLogged === true && <Payment data={userOrderInfo} checkOutDone={setUserOrdered}/>}
      </div>
     </>
   )
