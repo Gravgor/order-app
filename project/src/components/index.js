@@ -1,4 +1,4 @@
-import React,{ useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import './index.css'
 import { ItemsContent } from './app-user-dashboard/items/item'
 import Footer from './app-user-dashboard/order-footer-sidebar/Footer-sidebar'
@@ -28,7 +28,6 @@ const OrderApp = () => {
   const [userItemChoose, setUserItemChoose] = useState([])
   const [userChoosed,setUserChoosed] = useState(false)
   const [userOrdered, setUserOrdered] = useState(false)
-  const [error, setError] = useState(false)
   const [user, setUser] = useState('')
   const [location, setLocation] = useState('')
 

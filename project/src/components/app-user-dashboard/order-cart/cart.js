@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useMemo} from 'react'
+import React,{useState, useMemo} from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import './cart.css'
@@ -12,7 +12,6 @@ import Payment from '../order-checkout/payment';
 
 const Cart = ({items, shop, order, setPayment}) => {
 
-  const [cartItems, setCartItems] = useState(0)
   const [cartOpen, setCartOpen] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
 
