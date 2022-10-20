@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/order-app/static/css/main.692cf25d.css",
-    "main.js": "/order-app/static/js/main.5bd2f496.js",
+    "main.css": "/order-app/static/css/main.60b0e2f5.css",
+    "main.js": "/order-app/static/js/main.2d6930e8.js",
     "static/media/WorkSans-Regular.ttf": "/order-app/static/media/WorkSans-Regular.ca211a55c3d9d8690c63.ttf",
     "static/media/cooking1.svg": "/order-app/static/media/cooking1.27b344221f748d6f62f7866dba2394ce.svg",
     "index.html": "/order-app/index.html",
-    "main.692cf25d.css.map": "/order-app/static/css/main.692cf25d.css.map",
-    "main.5bd2f496.js.map": "/order-app/static/js/main.5bd2f496.js.map"
+    "main.60b0e2f5.css.map": "/order-app/static/css/main.60b0e2f5.css.map",
+    "main.2d6930e8.js.map": "/order-app/static/js/main.2d6930e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.692cf25d.css",
-    "static/js/main.5bd2f496.js"
+    "static/css/main.60b0e2f5.css",
+    "static/js/main.2d6930e8.js"
   ]
 }
