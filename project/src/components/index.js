@@ -5,20 +5,14 @@ import Footer from './app-user-dashboard/order-footer-sidebar/Footer-sidebar'
 import Header from './app-user-dashboard/order-header/Header'
 import Items from './app-user-dashboard/order-items/Item'
 import Nav from './app-user-dashboard/order-nav-bar/Nav-sidebar'
-import LoginUI from './app-user-login/user-login-ui/loginUI'
+import LoginUI from './app-user-system/app-user-register/loginUI'
 import RestaurantPage from './app-user-dashboard/order-item-page/restaurantPage'
 import Payment from './app-user-dashboard/order-checkout/payment'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import UserWelcome from './app-user-system/app-user-welcome/userWelcome'
 
 
-/*
-
-Display the item page when user clicked the actual item - DNE
-
-
-
-*/
 
 
 const OrderApp = () => {
@@ -31,6 +25,8 @@ const OrderApp = () => {
   const [userOrdered, setUserOrdered] = useState(false)
   const [user, setUser] = useState('')
   const [location, setLocation] = useState('')
+
+  const [userOption, setUserOption] = useState(0)
 
   /*  order info */
   const [userOrderInfo, setUserOrderInfo] = useState([{}])
@@ -65,8 +61,9 @@ const OrderApp = () => {
         <Footer/>
         </AnimatePresence>
       </>
-      }{userLogged === false &&
-      <LoginUI username={setUser} location={setLocation}/>}
+      }{userLogged === false && userOption === 0 && <UserWelcome userOption={setUserOption}/>}
+      {userLogged === false && userOption === 2 && <LoginUI user={setUser} location={setLocation}/>}
+      {userLogged === false && userOption === 1 && <p>login here</p>}
       {userOrdered === true && userLogged === true && <Payment data={userOrderInfo} checkOutDone={setUserOrdered}/>}
      </div>
     </>
