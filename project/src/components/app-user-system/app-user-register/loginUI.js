@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useMemo, useState} from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import './loginUI.css'
 import { Typography, Box, TextField, Stack, Button } from '@mui/material';
@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 
 
 
-const LoginUI = (props) => {
+const LoginUI = ({user, location}) => {
 
     const [userStep, setUserStep] = useState(1)
     const [userName, setUserName] = useState('')
@@ -17,9 +17,15 @@ const LoginUI = (props) => {
     const [userLocationGet, setUserLocationGet] = useState(false)
     const [userEndWelcome, setUserEndWelcome] = useState(false)
 
-   const handleLogin = () => {
-        props.username(userName)
-        props.location(userLocation)
+   useMemo(() => {
+     if(userEndWelcome === true){
+        user(userName)
+        location(userLocation)
+     }
+   },[user, location, userName, userLocation,userEndWelcome])
+   
+   
+    const handleLogin = () => {
         setUserEndWelcome(true)
    }
 
