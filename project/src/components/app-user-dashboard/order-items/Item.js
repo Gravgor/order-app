@@ -47,9 +47,27 @@ const handleChangeSearch = (prop) => (event) => {
     setValue(newValue);
   }
 
+
+  ///TODO: NEW FILTERING ITEMS BASED ON ACTUAL ITEMS IN DATABASE
   const italianItems = itemTable.filter(item => item.category === 'italian')
   const turkishItems = itemTable.filter(item => item.category === 'turkish')
 
+
+  /*new filtering items based on actual items in database
+  TODO: I NEED TO MAKE IT WORK XD
+  const filteringItems = (data) => {
+    const allItems = setAllItems(data)
+    if(itemsFiltered === false){
+      data.forEach(element => {
+        if(element.categoryDisplay){
+         console.log(element)
+        }else{
+          console.log('no category')
+        }
+      });
+    }
+  }
+  */
 
   const filteredItemsAll = itemTable.map(item =>  <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
   const filteredItalian = italianItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
@@ -85,6 +103,7 @@ const handleChangeSearch = (prop) => (event) => {
     }
   }
 
+  ///TODO: CHANGE ITEMS NAMES OF TABLE BASED ON FILTERED ITEMS AND STATE
   return (
     <motion.div
     initial={{width: 0}}
