@@ -34,6 +34,14 @@ const [search, setSearch] = useState({
 const [userItemPageValue, setUserItemPageValue] = useState(false)
 const [userItemPage, setUserItemPage] = useState([])
 
+const [categoryNameOne, setCategoryNameOne] = useState('')
+const [categoryNameTwo, setCategoryNameTwo] = useState('')
+
+const [categoryOne, setCategoryOne] = useState([])
+const [categoryTwo, setCategoryTwo] = useState([])
+
+const [category, setCategory] = useState(false)
+
 useEffect(() => {
   if(userItemPage.length > 0){
     userChoose(userItemPage)
@@ -48,32 +56,22 @@ const handleChangeSearch = (prop) => (event) => {
   }
 
 
-  ///TODO: NEW FILTERING ITEMS BASED ON ACTUAL ITEMS IN DATABASE
-  const italianItems = itemTable.filter(item => item.category === 'italian')
-  const turkishItems = itemTable.filter(item => item.category === 'turkish')
 
-
-  /*new filtering items based on actual items in database
-  TODO: I NEED TO MAKE IT WORK XD
-  const filteringItems = (data) => {
-    const allItems = setAllItems(data)
-    if(itemsFiltered === false){
-      data.forEach(element => {
-        if(element.categoryDisplay){
-         console.log(element)
-        }else{
-          console.log('no category')
-        }
-      });
-    }
+  function filterCategories(){
+   if(category === false){
+    const categoryOne = itemTable.filter(item => item.categoryOne === true)
+    const categoryTwo = itemTable.filter(item => item.categorySecond === true)
+    setCategoryNameOne(categoryOne[0].categoryDisplay)
+    setCategoryNameTwo(categoryTwo[0].categoryDisplay)
+    setCategoryOne(categoryOne)
+    setCategoryTwo(categoryTwo)
+    setCategory(true)
   }
-  */
+}
 
   const filteredItemsAll = itemTable.map(item =>  <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
-  const filteredItalian = italianItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
-  const filteredTurkish = turkishItems.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
 
-
+  filterCategories()
 
 
   const searchFunction = (e) => {
@@ -103,7 +101,6 @@ const handleChangeSearch = (prop) => (event) => {
     }
   }
 
-  ///TODO: CHANGE ITEMS NAMES OF TABLE BASED ON FILTERED ITEMS AND STATE
   return (
     <motion.div
     initial={{width: 0}}
@@ -140,12 +137,12 @@ const handleChangeSearch = (prop) => (event) => {
             
         }}>
             <Tab label='All' value='1'/>
-            <Tab label='Italian' value='2'/>
-            <Tab label='Turkish' value='3'/>
+            <Tab label={categoryNameOne} value='2'/>
+            <Tab label={categoryNameTwo} value='3'/>
         </Tabs>
         <TabPanel value='1'>
             <div className='content-grid'>
-              {search.allItems === false && 
+              {search.allItems === false &&
               filteredItemsAll
               }
               {itemTable.length === 0  &&
@@ -163,29 +160,29 @@ const handleChangeSearch = (prop) => (event) => {
         <TabPanel value='2'>
             <div className='content-grid'>
                {search.burgerItems === false &&
-               filteredItalian
+               categoryOne.map(item =>  <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
                }
-               {italianItems.length === 0  &&
+               {categoryOne.length === 0  &&
                <>
                <Loader/>
                </>
                }
                {search.burgerItems === true &&
-               <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredItalian}/>}
+               <LoaderSearch searchQuery={valueSearch.search} searchedItems={categoryOne}/>}
             </div>
         </TabPanel>
         <TabPanel value='3'>
         <div className='content-grid'>
              {search.pizzaItems === false &&
-             filteredTurkish
+             categoryTwo.map(item => <ItemsComponent id={item.id} name={item.name} location={item.location} premium={item.premium} img={item.img} categoryDisplay={item.categoryDisplay} deliveryTime={item.deliveryTime} userChoose={setUserItemPage}/>)
              }
-             {turkishItems.length === 0  &&
+             {categoryTwo.length === 0  &&
                <>
                <Loader/>
                </>
                }
                {search.pizzaItems === true &&
-               <LoaderSearch searchQuery={valueSearch.search} searchedItems={filteredTurkish}/>}
+               <LoaderSearch searchQuery={valueSearch.search} searchedItems={categoryTwo}/>}
         </div>
         </TabPanel>
     </TabContext>
