@@ -44,6 +44,8 @@ const OrderApp = () => {
     setUserChoosed(true)
   }
 
+  /* user pages */
+  const [actualPage, setActualPage] = useState(0)
 
   
 
@@ -51,17 +53,32 @@ const OrderApp = () => {
   return (
     <>
      <div className='app-component'>
-      {userLogged === true && userOrdered === false &&
+      {userLogged === true && userOrdered === false && actualPage === 0 &&
       <>
       <AnimatePresence>
         {userChoosed === false &&<Nav location={location}/>}
         {userChoosed === false && <Header userName={user}/>}
         {userChoosed === false && <Items itemTable={ItemsContent} userChoose={setUserItemChoose}/>}
         {userChoosed === true && <RestaurantPage data={userItemChoose} emptyArray={setUserItemChoose} userStateChoose={setUserChoosed} setUserOrdered={setUserOrdered} setUserOrderInfo={setUserOrderInfo}/>}
-        <Footer/>
+        <Footer page={setActualPage}/>
         </AnimatePresence>
       </>
-      }{userLogged === false && userOption === 0 && <UserWelcome userOption={setUserOption}/>}
+      }{userLogged === true && userOrdered === false && actualPage === 1 &&
+      <>
+      <p>jakies chuje muje dzikie dziwki restrauracje ale to chuba do wyjebania bedzie</p>
+      <Footer page={setActualPage}/>
+      </>}
+      {userLogged === true && userOrdered === false && actualPage === 2 &&
+      <>
+      <p>jakies premium</p>
+      <Footer page={setActualPage}/>
+      </>}
+      {userLogged === true && userOrdered === false && actualPage === 3 &&
+      <>
+      tutaj bedzie uzytkownik account
+      <Footer page={setActualPage}/>
+      </>}
+      {userLogged === false && userOption === 0 && <UserWelcome userOption={setUserOption}/>}
       {userLogged === false && userOption === 2 && <LoginUI user={setUser} location={setLocation}/>}
       {userLogged === false && userOption === 1 && <p>login here</p>}
       {userOrdered === true && userLogged === true && <Payment data={userOrderInfo} checkOutDone={setUserOrdered}/>}
