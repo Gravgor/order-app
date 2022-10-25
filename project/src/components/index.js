@@ -64,20 +64,26 @@ const OrderApp = () => {
         </AnimatePresence>
       </>
       }{userLogged === true && userOrdered === false && actualPage === 1 &&
+      <AnimatePresence>
       <>
       <p>jakies chuje muje dzikie dziwki restrauracje ale to chuba do wyjebania bedzie</p>
       <Footer page={setActualPage}/>
-      </>}
+      </>
+      </AnimatePresence>}
       {userLogged === true && userOrdered === false && actualPage === 2 &&
-      <>
-      <p>jakies premium</p>
-      <Footer page={setActualPage}/>
-      </>}
+     <AnimatePresence>
+     <>
+     <p>start</p>
+     <Footer page={setActualPage}/>
+     </>
+     </AnimatePresence>}
       {userLogged === true && userOrdered === false && actualPage === 3 &&
-      <>
-      tutaj bedzie uzytkownik account
-      <Footer page={setActualPage}/>
-      </>}
+     <AnimatePresence>
+     <>
+     <p>user eeee</p>
+     <Footer page={setActualPage}/>
+     </>
+     </AnimatePresence>}
       {userLogged === false && userOption === 0 && <UserWelcome userOption={setUserOption}/>}
       {userLogged === false && userOption === 2 && <LoginUI user={setUser} location={setLocation}/>}
       {userLogged === false && userOption === 1 && <p>login here</p>}
