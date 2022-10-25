@@ -108,9 +108,8 @@ visible={visible}
       
     }
   </div>
-
-
-}
+}{items.length === 0 &&
+<p>No items in this category</p>}
   </div>
 )
 }

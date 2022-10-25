@@ -9,7 +9,7 @@ import LoginUI from './app-user-system/app-user-register/loginUI'
 import RestaurantPage from './app-user-dashboard/order-item-page/restaurantPage'
 import Payment from './app-user-dashboard/order-checkout/payment'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import UserWelcome from './app-user-system/app-user-welcome/userWelcome'
 
 

@@ -31,6 +31,7 @@ const [search, setSearch] = useState({
   pizzaItems: false,
 })
 
+// eslint-disable-next-line no-unused-vars
 const [userItemPageValue, setUserItemPageValue] = useState(false)
 const [userItemPage, setUserItemPage] = useState([])
 
